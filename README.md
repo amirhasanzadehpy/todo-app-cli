@@ -7,7 +7,6 @@ This is a command-line interface (CLI) application built with Go (Golang) that a
 - [Usage](#usage)
 - [Commands](#commands)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -36,6 +35,20 @@ go build ./cmd/todo/
 ```bash
 ./todo
 ```
+OR
+
+Move the generated binary to a directory in your system's PATH to make it globally accessible:
+
+```bash
+sudo mv todo /usr/local/bin
+```
+Note: You might need to use sudo to move the binary to a system-wide directory.
+
+Verify the installation by running:
+
+```bash
+todo -v
+```
 
 ## Usage
 
@@ -44,7 +57,27 @@ Once you have installed and run the application, you can start managing your TOD
 To view all available commands and their usage, run:
 
 ```bash
-./todo -help
+todo -help
+```
+
+To add a new task:
+```bash
+todo -add Buy groceries
+```
+
+To list all tasks:
+```bash
+todo -list
+```
+
+To mark a task as completed:
+```bash
+todo -complete=1
+```
+
+To delete a task:
+```bash
+todo -delete=2
 ```
 
 ## Commands
