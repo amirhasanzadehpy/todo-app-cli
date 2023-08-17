@@ -12,7 +12,8 @@ import (
 )
 
 const (
-	todoFile = ".todos.josn"
+	todoFile   = ".todos.josn"
+	versionApp = "0.1"
 )
 
 func main() {
@@ -20,6 +21,7 @@ func main() {
 	complete := flag.Int("complete", 0, "complete some task")
 	del := flag.Int("delete", 0, "delete some task")
 	list := flag.Bool("list", false, "list all task")
+	version := flag.Bool("v", false, "version of todo-app-cli")
 	flag.Parse()
 
 	todos := &todo.Todos{}
@@ -30,6 +32,8 @@ func main() {
 	}
 
 	switch {
+	case *version:
+		fmt.Printf("v%s\n", versionApp)
 	case *add:
 		task, err := getInput(os.Stdin, flag.Args()...)
 		if err != nil {
